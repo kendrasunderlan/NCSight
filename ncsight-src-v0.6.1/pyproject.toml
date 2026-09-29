@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ncsight"
+description = "NCSight（海视）—— 面向海洋遥感的 netCDF 可视化工作台"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "NCSight Contributors" }]
+keywords = ["netCDF", "oceanography", "remote-sensing", "visualization", "cartopy"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+# 版本号从 ncsight/version.py 读取 —— 全工程唯一来源，绝不硬编码
+dynamic = ["version"]
+
+dependencies = [
+    "numpy>=1.23",
+    "matplotlib>=3.6",
+    "netCDF4>=1.6",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+# 地图投影与底图（强烈建议装）
+geo = ["cartopy>=0.22", "pyproj>=3.4"]
+# 海洋学与科学配色
+colormaps = ["cmocean>=3.0", "cmcrameri>=1.8"]
+# 科学计算（距平、平滑、梯度）
+analysis = ["scipy>=1.9", "xarray>=2022.6"]
+# 图形界面
+gui = ["PySide6>=6.4"]
+# 动画
+animation = ["imageio>=2.20", "pillow>=9.0"]
+# 全套
+all = [
+    "cartopy>=0.22", "pyproj>=3.4",
+    "cmocean>=3.0", "cmcrameri>=1.8",
+    "scipy>=1.9", "xarray>=2022.6",
+    "PySide6>=6.4", "imageio>=2.20", "pillow>=9.0",
+]
+
+[project.scripts]
+ncsight = "ncsight.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/USERNAME/ncsight"
+Issues = "https://github.com/USERNAME/ncsight/issues"
+Changelog = "CHANGELOG.md"
+
+[tool.setuptools.dynamic]
+version = { attr = "ncsight.version.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["ncsight*"]
+
+[tool.setuptools.package-data]
+ncsight = ["presets/*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
