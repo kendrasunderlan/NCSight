@@ -1,0 +1,70 @@
+kind: map
+variable: ''
+select: {}
+bbox: null
+time_index: 0
+cmap: auto
+table_path: null
+vmin: null
+vmax: null
+nbins: 24
+discrete: true
+reverse: false
+log: false
+center_zero: false
+show_colorbar: true
+colorbar_location: right
+colorbar_label: null
+colorbar_ticks: null
+projection: PlateCarree
+lon0: 0.0
+lat0: 0.0
+overlays:
+  coastline: true
+  borders: false
+  lakes: false
+  rivers: false
+  land: false
+  ocean: false
+  resolution: 110m
+  line_color: '#3f3f46'
+  line_width: 0.45
+  shapefile: null
+  shapefile_color: '#b45309'
+  shapefile_width: 0.8
+show_grid: true
+grid_dx: null
+grid_dy: null
+grid_labels: true
+show_contours: true
+contour_levels: 10
+contour_labels: false
+max_cells: 1500000
+vector_variable: ''
+vector_step: 18
+vector_scale: null
+vector_color: '#374151'
+vector_width: 0.7
+vector_units_scale: 1.0
+mask_land: false
+mask_polygon: null
+mask_shapefile: null
+mask_range: null
+quality_var: null
+quality_accept: 0:2
+xlog: false
+ylog: false
+marker: false
+line_color: null
+line_width: 1.2
+invert_y: false
+title: null
+subtitle: null
+preset: double
+figsize: null
+dpi: 300
+fontsize: 8.5
+xlabel: null
+ylabel: null
+show_stats: false
+outfile: null
